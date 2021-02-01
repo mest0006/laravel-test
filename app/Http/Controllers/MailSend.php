@@ -18,7 +18,7 @@ class MailSend extends Controller
         ];
         $email = ['borbala.m.m@gmail.com', 'test@mail.com', 'test2.com',];
         foreach ($email as $recipient) {
-            Mail::to($recipient)->send(new SendMail($details))->subject('subject');
+            Mail::to($recipient)->send(new SendMail($details));
             return view('emails.thanks')->with([
                 'Title' => $details['title'],
                 'Body' => $details['body'],
