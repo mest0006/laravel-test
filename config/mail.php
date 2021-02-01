@@ -46,15 +46,18 @@ return [
         ],
 
         'ses' => [
-            'transport' => 'ses',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
         ],
 
         'mailgun' => [
             'transport' => 'mailgun',
+            'message_stream_id' => env('POSTMARK_MESSAGE_STREAM_ID'),
         ],
 
         'postmark' => [
-            'transport' => 'postmark',
+            'token' => env('POSTMARK_TOKEN'),
         ],
 
         'sendmail' => [
@@ -86,8 +89,8 @@ return [
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'borbala.m.m@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Borbala Mester'),
-    ],
 
+    ],
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings

@@ -7,7 +7,12 @@
 <body>
 	<div class="container">
 		<div class="alert alert-success" role="alert">
-		 	Thanks, we will contact you soon
+ 
+      {{ $Title }}   {{ $Body }}  
+      
+ @foreach ($Recipients as $mails) 
+<h2>{{ $mails}}</h2> 
+ @endforeach 
 		</div>
 	 </div>
 </body>
