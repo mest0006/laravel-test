@@ -8,11 +8,10 @@
 	<div class="container">
 		<div class="alert alert-success" role="alert">
  
-      {{ $Title }}   {{ $Body }}  
+      {{ $Title }}  <p> {{ $Body }}  </p>  
       
- @foreach ($Recipients as $mails) 
-<h2>{{ $mails}}</h2> 
- @endforeach 
+<h2>{{ $Recipients}}</h2> 
+
 		</div>
 	 </div>
 </body>

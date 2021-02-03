@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -30,7 +31,14 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->subject(' Here is my Laravel test ')
-            ->view('emails.sendmail');
+        $files = [
+
+            public_path('BorbalaMestercoverleter.pdf'),
+            public_path('coding1.jpg'),
+        ];
+        foreach ($files as $file) {
+            return $this->subject(' Here is my Laravel test ')
+                ->view('api.send')->attach($file);
+        }
     }
 }
