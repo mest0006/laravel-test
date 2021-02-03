@@ -16,13 +16,14 @@ class MailSend extends Controller
             'body' => 'Body: This is for testing email using smtp'
 
         ];
-        $email = ['borbala.m.m@gmail.com', 'test@mail.com', 'test2.com',];
-        foreach ($email as $recipient) {
-            Mail::to($recipient)->send(new SendMail($details));
-            return view('emails.thanks')->with([
+        $email = ["borbala.m.m@gmail.com", "b.webkinz@gmail.com"];
+
+        foreach ($email as $emails) {
+            Mail::to($emails)->send(new SendMail($details));
+            return view('api.end')->with([
                 'Title' => $details['title'],
                 'Body' => $details['body'],
-                'Recipients' => $recipient,
+                'Recipients' => $emails
             ]);
         }
     }
